@@ -10,6 +10,7 @@ public class GrabHex : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointe
 	public PlayerBar playerBar;
 	public int pos;
 	[SerializeField] bool startTile = false;
+	public bool blackTile = false;
 	bool isPlaced = false;
 
 	// Use this for initialization
@@ -44,6 +45,9 @@ public class GrabHex : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointe
 					isPlaced = true;
 				}
 				transform.parent = hit.transform;
+			}
+			else if (hit.transform.tag == "trash" && blackTile) {
+				Destroy (gameObject);
 			}
 		}
 

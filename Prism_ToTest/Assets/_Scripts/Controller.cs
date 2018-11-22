@@ -17,6 +17,7 @@ public class Controller : MonoBehaviour {
 	int activePlayer = 0;
 	[SerializeField] GameObject[] playerBars;
 	[SerializeField] GameObject startPanel;
+	[SerializeField] GameObject infoPanel;
 
 	// Use this for initialization
 	void Awake () {
@@ -48,7 +49,7 @@ public class Controller : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (activeTile != null) {
+		if (activeTile != null && !activeTile.GetComponent<GrabHex>().blackTile) {
 
 			markerTile.transform.position = new Vector3 (activeTile.transform.position.x, activeTile.transform.position.y, -0.3f);
 		}
@@ -69,9 +70,14 @@ public class Controller : MonoBehaviour {
 		playerBars [activePlayer].SetActive (true);
 	}
 
-	public void StartGame(){
+	public void StartGame(bool b){
 		playerBars [1].SetActive (false);
 		playerBars [2].SetActive (false);
 		startPanel.SetActive (false);
+		if (b) {
+
+		} else {
+			infoPanel.SetActive (false);
+		}
 	}
 }

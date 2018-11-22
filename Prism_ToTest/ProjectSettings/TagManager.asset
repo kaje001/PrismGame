@@ -6,6 +6,7 @@ TagManager:
   tags:
   - con
   - board
+  - trash
   layers:
   - Default
   - TransparentFX

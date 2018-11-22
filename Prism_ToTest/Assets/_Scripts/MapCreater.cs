@@ -25,7 +25,7 @@ public class MapCreater : MonoBehaviour {
 				for (int k = 0; k <= currentCircle; k++) {
 					creater.transform.Translate (Vector3.up);
 					GameObject ob = Instantiate (tile, creater.transform.position, creater.transform.rotation, gameObject.transform);
-					tile.transform.tag = "board";
+					ob.transform.tag = "board";
 				}
 				creater.transform.Rotate (Vector3.back, 60f);
 			}
